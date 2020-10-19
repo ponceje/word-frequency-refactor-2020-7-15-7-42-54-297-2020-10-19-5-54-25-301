@@ -7,10 +7,6 @@ public class WordFrequencyGame {
 
     public String getResult(String inputStr){
 
-
-        if (inputStr.split(WHITE_SPACE).length==1) {
-            return inputStr + " 1";
-        } else {
             try {
 
                 List<WordInfo> wordInfoList = calculateWordFrequency(inputStr) ;
@@ -26,7 +22,7 @@ public class WordFrequencyGame {
             } catch (Exception e) {
                 return "Calculate Error";
             }
-        }
+
     }
 
     private List<WordInfo> calculateWordFrequency(String sentence){
