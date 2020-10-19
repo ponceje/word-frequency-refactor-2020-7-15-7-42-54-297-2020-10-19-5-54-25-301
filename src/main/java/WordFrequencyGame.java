@@ -8,10 +8,10 @@ public class WordFrequencyGame {
     public String getResult(String inputStr){
         List<WordInfo> wordInfoList = calculateWordFrequency(inputStr) ;
         wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
-        return getResultJoiner(wordInfoList).toString();
+        return getResultStrJoiner(wordInfoList).toString();
     }
 
-    private StringJoiner getResultJoiner(List<WordInfo> wordInfoList) {
+    private StringJoiner getResultStrJoiner(List<WordInfo> wordInfoList) {
         StringJoiner resultStrJoiner = new StringJoiner(NEW_LINE);
         wordInfoList.stream().map(wordInfo -> String.format("%s %d", wordInfo.getValue(), wordInfo.getWordCount()))
                 .forEachOrdered(resultStrJoiner::add);
