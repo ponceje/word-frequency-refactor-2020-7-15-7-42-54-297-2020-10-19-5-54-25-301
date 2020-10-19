@@ -13,20 +13,17 @@ public class WordFrequencyGame {
 
     private StringJoiner getStringJoiner(List<WordInfo> wordInfoList) {
         StringJoiner joiner = new StringJoiner(NEW_LINE);
-        for (WordInfo wordInfo : wordInfoList) {
-            String wordInfoLine = String.format("%s %d", wordInfo.getValue(), wordInfo.getWordCount());
-            joiner.add(wordInfoLine);
-        }
+        wordInfoList.stream().map(wordInfo -> String.format("%s %d", wordInfo.getValue(), wordInfo.getWordCount())).forEachOrdered(joiner::add);
         return joiner;
     }
 
     private List<WordInfo> calculateWordFrequency(String sentence){
         List<String> words = Arrays.asList(sentence.split(WHITE_SPACE));
         List<WordInfo> wordInfoList = new ArrayList<>();
-        for(String word : new HashSet<>(words)){
-            int count = Collections.frequency(words,word);
-            wordInfoList.add(new WordInfo(word,count));
-        }
+        new HashSet<>(words).forEach(word -> {
+            int count = Collections.frequency(words, word);
+            wordInfoList.add(new WordInfo(word, count));
+        });
         return wordInfoList;
     }
 }
