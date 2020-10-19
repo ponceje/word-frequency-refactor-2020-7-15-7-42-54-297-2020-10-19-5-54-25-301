@@ -29,6 +29,4 @@ public class WordFrequencyGame {
         }
         return wordInfoList;
     }
-
-
 }
