@@ -2,7 +2,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-public class WordFrequencyGameTest {
+public class WordInfoFrequencyGameTest {
 
     @Test
     public void should_get_the_1_when_input_the() throws Exception {
