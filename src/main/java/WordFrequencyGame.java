@@ -12,9 +12,9 @@ public class WordFrequencyGame {
     }
 
     private StringJoiner getResultJoiner(List<WordInfo> wordInfoList) {
-        StringJoiner joiner = new StringJoiner(NEW_LINE);
-        wordInfoList.stream().map(wordInfo -> String.format("%s %d", wordInfo.getValue(), wordInfo.getWordCount())).forEachOrdered(joiner::add);
-        return joiner;
+        StringJoiner resultStrJoiner = new StringJoiner(NEW_LINE);
+        wordInfoList.stream().map(wordInfo -> String.format("%s %d", wordInfo.getValue(), wordInfo.getWordCount())).forEachOrdered(resultStrJoiner::add);
+        return resultStrJoiner;
     }
 
     private List<WordInfo> calculateWordFrequency(String sentence){
