@@ -27,6 +27,7 @@ public class WordFrequencyGame {
     private List<WordInfo> calculateWordFrequency(String sentence){
         List<String> words = Arrays.asList(sentence.split(WHITE_SPACE));
         return words.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet()
-                .stream().map(stringLongEntry -> new WordInfo(stringLongEntry.getKey(),Math.toIntExact(stringLongEntry.getValue()))).collect(Collectors.toList());
+                .stream().map(stringLongEntry -> new WordInfo(stringLongEntry.getKey(),Math.toIntExact(stringLongEntry
+                        .getValue()))).collect(Collectors.toList());
     }
 }
